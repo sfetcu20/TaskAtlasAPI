@@ -1,4 +1,4 @@
-const Admin = require('./admin');
+const User = require('./user');
 const Confirm = require('./confirm');
 const Hash = require('./hash');
 const Identity = require('./identity');
@@ -7,7 +7,7 @@ const Reset = require('./reset');
 const Trash = require('./trash');
 
 module.exports = {
-  Admin,
+  User,
   Confirm,
   Hash,
   Identity,

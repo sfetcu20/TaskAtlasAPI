@@ -4,11 +4,21 @@ const Identity = require('./identity');
 /**
  * Admins are identities who have extended permissions
  */
-const name = 'admin';
+const name = 'user';
 const schema = new mongoose.Schema({
-  active: {
-    type: Boolean,
-    default: true,
+  skills: {
+    type: [String],
+  },
+  preferences: {
+    type: [String],
+  },
+  coins: {
+    type: Number,
+    default: 0,
+  },
+  completedTasks: {
+    type: Number,
+    default: 0,
   },
 });
 

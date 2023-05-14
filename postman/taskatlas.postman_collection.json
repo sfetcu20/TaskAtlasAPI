@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "df537007-ed16-428e-bb96-49bc2c36b4ce",
-		"name": "express",
+		"_postman_id": "468d59ae-d1c7-434b-a6f8-6021f2cc48fc",
+		"name": "taskatlas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -108,6 +108,38 @@
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Test 0\",\r\n    \"email\":\"test0@email.com\",\r\n    \"password\":\"testpassword\",\r\n    \"locations\":[\"bucuresti\"],\r\n    \"skills\":[\"atlethic\",\"woodworking\",\"gardening\"],\r\n    \"preferences\":[\"close_locations\"],\r\n    \"coordonates\":\"44.410382, 26.098000\",\r\n    \"description\":\"Test user no. 0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
