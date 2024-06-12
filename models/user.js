@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Identity = require('./identity');
+const { EDUCATION_ENUM, WORK_PREFERENCE_ENUM } = require('../constants');
 
 /**
- * Admins are identities who have extended permissions
+ * Users are freelancers who can apply for jobs
  */
 const name = 'user';
 const schema = new mongoose.Schema({
@@ -11,14 +12,30 @@ const schema = new mongoose.Schema({
   },
   preferences: {
     type: [String],
-  },
-  coins: {
-    type: Number,
-    default: 0,
+    enum: Object.values(WORK_PREFERENCE_ENUM),
   },
   completedTasks: {
     type: Number,
     default: 0,
+  },
+  jobHistory: [
+    {
+      client: mongoose.Types.ObjectId,
+      title: String,
+      duration: Number,
+      skills: [String],
+    },
+  ],
+  highestEducation: {
+    type: String,
+    enum: EDUCATION_ENUM,
+  },
+  certifications: {
+    type: [String],
+  },
+  experience: {
+    type: Number,
+    set: (v) => Number(v),
   },
 });
 

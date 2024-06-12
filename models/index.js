@@ -4,7 +4,8 @@ const Hash = require('./hash');
 const Identity = require('./identity');
 const Key = require('./key');
 const Reset = require('./reset');
-const Trash = require('./trash');
+const Client = require('./client');
+const Post = require('./post');
 
 module.exports = {
   User,
@@ -13,5 +14,6 @@ module.exports = {
   Identity,
   Key,
   Reset,
-  Trash,
+  Client,
+  Post,
 };
