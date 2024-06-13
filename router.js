@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { authenticate, errorHandler, notFound, status } = require('./middleware');
-const { identity, user } = require('./routes');
+const { identity, user, client } = require('./routes');
 
 const router = Router();
 module.exports = router;
@@ -16,6 +16,7 @@ router.use(status.error);
 // use the router instances defined
 router.use(identity);
 router.use(user);
+router.use(client);
 
 // matches any other HTTP method and route not matched before
 router.all('*', notFound);

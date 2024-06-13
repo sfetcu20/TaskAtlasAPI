@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { WORK_PREFERENCE_ENUM, JOB_STATUS } = require('../constants');
-const { reference } = require('express-goodies/mongoose');
+const { reference, paginate } = require('express-goodies/mongoose');
 
 /**
  Posts store the details of the task to be completed
@@ -51,11 +51,13 @@ const schema = new mongoose.Schema(
       default: JOB_STATUS.OPEN,
     },
     client: reference,
-    user: reference,
+    user: {
+      type: reference,
+    },
     skillsRequired: [String],
     education: String,
   },
   { timestamps: true }
 );
-
+schema.plugin(paginate);
 module.exports = mongoose.model(name, schema);

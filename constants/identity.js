@@ -83,6 +83,6 @@ const CERTIFICATION_ENUM = [
 ];
 const WORK_PREFERENCE_ENUM = {
   remote: 'Remote',
-  on_site: 'On-site',
+  on_site: 'On-Site',
 };
 module.exports = { EDUCATION_ENUM, CERTIFICATION_ENUM, WORK_PREFERENCE_ENUM };
