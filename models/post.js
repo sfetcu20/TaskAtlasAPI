@@ -50,9 +50,16 @@ const schema = new mongoose.Schema(
       enum: Object.values(JOB_STATUS),
       default: JOB_STATUS.OPEN,
     },
-    client: reference,
+    client: {
+      type: mongoose.Types.ObjectId,
+      ref: 'client',
+    },
     user: {
       type: reference,
+    },
+    times_viewed: {
+      type: Number,
+      default: 0,
     },
     skillsRequired: [String],
     education: String,

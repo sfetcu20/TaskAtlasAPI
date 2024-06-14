@@ -8,3 +8,4 @@ module.exports = router;
 
 router.post('/client/posts', authenticate, authorize('client'), Client.createPost);
 router.get('/client/posts', authenticate, Client.readManyPosts);
+router.get('/client/all-posts', authenticate, Client.readManyAll);

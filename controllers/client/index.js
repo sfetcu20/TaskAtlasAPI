@@ -1,7 +1,8 @@
 const createPost = require('./create-post');
-const readManyPosts = require('../post/read-many');
+const { readManyAll, readManyPosts } = require('../post');
 
 module.exports = {
   createPost,
   readManyPosts,
+  readManyAll,
 };
