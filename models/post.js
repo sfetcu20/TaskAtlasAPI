@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { WORK_PREFERENCE_ENUM, JOB_STATUS } = require('../constants');
-const { reference, paginate } = require('express-goodies/mongoose');
+const { paginate } = require('express-goodies/mongoose');
 
 /**
  Posts store the details of the task to be completed
@@ -27,6 +27,9 @@ const schema = new mongoose.Schema(
       lat: String,
       lon: String,
     },
+    cover: {
+      type: String,
+    },
     address: {
       type: String,
     },
@@ -40,6 +43,15 @@ const schema = new mongoose.Schema(
     startDate: {
       type: Date,
       set: (v) => new Date(v),
+    },
+    applications: {
+      type: [
+        {
+          _id: mongoose.Types.ObjectId,
+          name: String,
+          message: String,
+        },
+      ],
     },
     endDate: {
       type: Date,
@@ -55,7 +67,8 @@ const schema = new mongoose.Schema(
       ref: 'client',
     },
     user: {
-      type: reference,
+      type: mongoose.Types.ObjectId,
+      ref: 'user',
     },
     times_viewed: {
       type: Number,

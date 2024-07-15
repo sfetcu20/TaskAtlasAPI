@@ -1,6 +1,7 @@
 const connectToMongo = require('../functions/connect');
-const identities = require('./seeds/001_identities');
 
+const clients = require('./seeds/002_clients');
+const posts = require('./seeds/003_posts');
 const seed = async (params) => {
   if (!process.env.MONGODB_URI) {
     throw new Error('You must set your environment variables before running this script');
@@ -11,7 +12,8 @@ const seed = async (params) => {
 
   await connectToMongo();
 
-  await identities.seed();
+  await clients.seed();
+  await posts.seed();
 };
 
 (async () => {

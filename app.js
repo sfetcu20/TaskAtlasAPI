@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const setupCors = require('./cors/setup-cors');
 const { speedLimiter } = require('./middleware');
 const router = require('./router');
+const fileUpload = require('express-fileupload');
 const app = express();
 
 const { connectToMongo } = require('./functions');
@@ -13,6 +14,7 @@ connectToMongo();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
+app.use(fileUpload());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // custom cors config

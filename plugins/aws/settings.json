@@ -1,0 +1,7 @@
+{
+  "name": "plugins/aws",
+  "version": "0.1",
+  "bucket": "chesscoders",
+  "folder": "licenta",
+  "region": "fra1"
+}
