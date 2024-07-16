@@ -20,10 +20,11 @@ const schema = new mongoose.Schema({
   },
   jobHistory: [
     {
+      _id: mongoose.Types.ObjectId,
       client: mongoose.Types.ObjectId,
       title: String,
       duration: Number,
-      skills: [String],
+      skillsRequired: [String],
     },
   ],
   highestEducation: {

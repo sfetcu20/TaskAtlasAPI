@@ -5,11 +5,11 @@ const { postFilter } = require('../../functions/filters');
 const { Types } = require('mongoose');
 
 const readMany = async (req, res) => {
-  console.log(req.user._id);
-
+  console.log(req.query, 'In read my post');
+  console.log(req.query);
   const filter = {
     ...postFilter(req.query),
-    client: Types.ObjectId(req.user._id),
+    'applications._id': Types.ObjectId(req.user._id),
   };
   const documents = await Post.find(filter).paginate(req.query);
   if (!documents) {

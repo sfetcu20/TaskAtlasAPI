@@ -12,7 +12,16 @@ module.exports = (query) => {
     filter.query.endDate = { ...filter, endDate: { $lte: query.endDate } };
   }
   if (query.skillsRequired) {
-    filter.skillsRequired = { $all: query.skillsRequired };
+    filter.skillsRequired = { $in: query.skillsRequired };
+  }
+  if (query.status && query.status != 'All') {
+    filter.status = query.status;
+  }
+  if (query.type && query.type != 'All') {
+    filter.type = query.type;
+  }
+  if (query.country) {
+    filter.country = { $in: query.country };
   }
   return filter;
 };

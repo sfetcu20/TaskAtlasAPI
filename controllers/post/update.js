@@ -21,6 +21,9 @@ const updatePost = async (req, res) => {
   if (req.body?.coordinates) {
     payload.coordinates = JSON.parse(req.body.coordinates);
   }
+  if (req.body?.applications) {
+    payload.applications = JSON.parse(req.body.applications);
+  }
   delete payload.client;
   try {
     if (image?.data) {

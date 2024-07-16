@@ -6,6 +6,7 @@ const Key = require('./key');
 const Reset = require('./reset');
 const Client = require('./client');
 const Post = require('./post');
+const Review = require('./review');
 
 module.exports = {
   User,
@@ -15,5 +16,6 @@ module.exports = {
   Key,
   Reset,
   Client,
+  Review,
   Post,
 };
